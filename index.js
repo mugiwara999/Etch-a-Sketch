@@ -15,13 +15,14 @@ for (let i = 0; i < 16; i++) {
   container.appendChild(row);
 }
 
+function paint(e) {
+  e.target.style.backgroundColor = 'black';
+}
 const squares = document.querySelectorAll('.column');
 
-squares.forEach((square) =>
+squares.forEach((square) => {
 
 
-  square.addEventListener('click', function(e) {
-    this.style.backgroundColor('black');
-  })
-)
 
+  square.addEventListener('mouseover', paint)
+});
