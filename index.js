@@ -21,12 +21,53 @@ function paintRainbow(e) {
   colorChooser++;
 }
 
+let gridLength = 16;
 // produce grid
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < gridLength; i++) {
   const row = document.createElement('div');
 
   row.classList.add('row');
-  for (let j = 0; j < 16; j++) {
+  for (let j = 0; j < gridLength; j++) {
+    const div = document.createElement('div');
+
+    div.classList.add('column')
+
+    row.appendChild(div);
+  }
+
+  container.appendChild(row);
+}
+let squareSize = 1000 / gridLength;
+console.log(squareSize);
+let squares = document.querySelectorAll('.column');
+squares.forEach((square) => {
+  square.style.width = (`${squareSize}px`);
+  square.style.height = (`${squareSize}px`);
+});
+
+let removeGrid = gridLength;
+
+for (let i = 0; i < removeGrid; i++) {
+
+  container.removeChild(container.firstElementChild);
+}
+gridLength = Number(prompt("enter a size", 16));
+
+while (gridLength > 100) {
+
+  gridLength = Number(prompt("enter a size", 16));
+
+}
+
+squareSize = 640 / gridLength;
+
+console.log(squareSize);
+
+for (let i = 0; i < gridLength; i++) {
+  const row = document.createElement('div');
+
+  row.classList.add('row');
+  for (let j = 0; j < gridLength; j++) {
     const div = document.createElement('div');
 
     div.classList.add('column')
@@ -37,13 +78,11 @@ for (let i = 0; i < 16; i++) {
   container.appendChild(row);
 }
 
-
-
-const squares = document.querySelectorAll('.column');
-
-
-
-
+squares = document.querySelectorAll('.column');
+squares.forEach((square) => {
+  square.style.width = `${squareSize}px`;
+  square.style.height = `${squareSize}px`;
+});
 const black = document.querySelector('button.black');
 
 const rainbow = document.querySelector('button.rainbow');
