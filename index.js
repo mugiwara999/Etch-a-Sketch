@@ -9,11 +9,19 @@ for (let i = 0; i < 16; i++) {
 
     div.classList.add('column')
 
-    div.textContent = 'hi';
     row.appendChild(div);
   }
 
   container.appendChild(row);
 }
 
+const squares = document.querySelectorAll('.column');
+
+squares.forEach((square) =>
+
+
+  square.addEventListener('click', function(e) {
+    this.style.backgroundColor('black');
+  })
+)
 
